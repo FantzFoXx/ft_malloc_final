@@ -6,7 +6,7 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/14 11:43:18 by udelorme          #+#    #+#              #
-#    Updated: 2018/02/12 11:12:54 by udelorme         ###   ########.fr        #
+#    Updated: 2018/02/12 11:25:52 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ endif
 CC = clang
 FLAGS = -Wall -Werror -Wextra 
 LIBFLAGS = -shared -fPIC
-NAME = libft_malloc_$$HOSTTYPE.so
+NAME = libft_malloc_$(HOSTTYPE).so
+#NAME = libft_malloc_mdr.so
 SRC = ft_malloc.c thread.c memory.c memory_2.c memory_3.c free_memory.c print.c
 
 OBJ = $(SRC:.c=.o)
@@ -32,11 +33,11 @@ LIB = $(LIBDIR)libft.a
 SRCS = $(addprefix $(SRCDIR),$(SRC))
 OBJS = $(addprefix $(OBJDIR),$(OBJ))
 
-all: $(NAME)
-
 $(NAME): $(LIB) $(OBJS)
 	$(CC) $(LIBFLAGS) -o $(NAME) $^
-	ln -s $(NAME) libft_malloc.so
+	ln -s $(NAME) libft_malloc.so 2>/dev/null
+
+all: $(NAME)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir $(OBJDIR) 2> /dev/null || true
@@ -51,7 +52,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	rm -rf libft_malloc.so
+	rm -rf libft_malloc.so &2>/dev/null
 
 re: fclean all
 
