@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:16:02 by udelorme          #+#    #+#             */
-/*   Updated: 2018/02/05 16:10:46 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/02/14 11:37:09 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	*malloc(size_t size)
 {
 	void	*ret;
 
-	ret = NULL;
 	lock_mutex();
+	ret = NULL;
 	ret = allocate_block(size);
 	unlock_mutex();
 	return (ret);

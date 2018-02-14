@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 12:58:56 by udelorme          #+#    #+#             */
-/*   Updated: 2018/02/05 16:10:56 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/02/14 11:38:20 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	show_alloc_mem(void)
 	t_type	type;
 	int		total;
 
+	lock_mutex();
 	map = g_env.map;
 	type = TINY;
 	total = 0;
@@ -113,4 +114,5 @@ void	show_alloc_mem(void)
 	ft_putstr("Total : ");
 	malloc_itoa_base(total, "0123456789");
 	ft_putendl(" octets");
+	unlock_mutex();
 }
