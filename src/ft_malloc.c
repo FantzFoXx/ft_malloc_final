@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:16:02 by udelorme          #+#    #+#             */
-/*   Updated: 2018/02/14 11:37:09 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/09/20 15:27:08 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ void	*malloc(size_t size)
 	unlock_mutex();
 	return (ret);
 }
-
-/*
-**void	*reallocf(void *ptr, size_t size)
-**{
-**#ifdef VERBOSE
-**	ft_mtrace("reallocf", "PASS");
-**#endif
-**	return (realloc(ptr, size));
-**}
-*/
 
 void	*realloc(void *ptr, size_t size)
 {

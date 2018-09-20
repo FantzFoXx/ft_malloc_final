@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:16:37 by udelorme          #+#    #+#             */
-/*   Updated: 2018/02/05 16:09:56 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/09/20 15:52:01 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void				*allocate_block(size_t size)
 {
 	t_chunk	*free_chunk;
 	t_type	type;
-	char	*mdr;
 
 	free_chunk = NULL;
 	if ((int)size < 0)
@@ -130,6 +129,5 @@ void				*allocate_block(size_t size)
 	free_chunk = create_chunk(type, size);
 	if (!free_chunk)
 		return (NULL);
-	mdr = free_chunk->addr;
 	return (free_chunk->addr);
 }
