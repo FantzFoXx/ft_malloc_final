@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 12:58:56 by udelorme          #+#    #+#             */
-/*   Updated: 2018/02/14 11:38:20 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/09/20 16:03:02 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	print_page_infos(t_type type)
 int		print_alloc_informations(t_chunk *chunk)
 {
 	ft_putstr("0x");
-	malloc_itoa_base((int)chunk->addr, "0123456789ABCDEF");
+	malloc_itoa_base((size_t)chunk->addr, "0123456789ABCDEF");
 	ft_putstr(" - ");
 	ft_putstr("0x");
-	malloc_itoa_base((int)chunk->addr + chunk->size, "0123456789ABCDEF");
+	malloc_itoa_base((size_t)chunk->addr + chunk->size, "0123456789ABCDEF");
 	ft_putstr(" : ");
 	malloc_itoa_base(chunk->size, "0123456789");
 	ft_putendl("");
